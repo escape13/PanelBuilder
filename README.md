@@ -4,22 +4,22 @@ This add-on allows you to make Paneled surfaces in one click! Instead of applyin
 
 ## Installation
 
-1. Clone panelbuilder.py to your computer
-2. Open Blender
-3. Go to Edit -> Preferences -> Add-ons
-4. Click 'Install' and navigate to the directory where you have saved panelbuilder.py
-5. Click 'Install add-on'
-6. Check the box 'Add Mesh: PanelBuilder'
+1. Clone panelbuilder.py to your computer.
+2. Open Blender.
+3. Go to Edit -> Preferences -> Add-ons.
+4. Click 'Install' and navigate to the directory where you have saved panelbuilder.py.
+5. Click 'Install add-on'.
+6. Check the box 'Add Mesh: PanelBuilder'.
 
 ## Functionality 
 
-A new type of mesh will appear when you'll try to create a mesh (Shift + A): **Panels**
+A new type of mesh will appear in the menu when you'll try to create a mesh (Shift + A): **Panels**
 
 ![new mesh type](https://github.com/escape13/PanelBuilder/blob/master/images/addMesh.png?raw=true)
 
 ### Let's start with **PaneledWall**
 **PaneledWall** automatically adjusts to the user's input and retains its consistensy no matter the value given.
-![Paneled wall](https://github.com/escape13/PanelBuilder/blob/master/images/PaneledWall.png?raw=true)
+![Paneled wall](https://github.com/escape13/PanelBuilder/blob/master/images/paneledWall.png?raw=true)
 As you can see from the settings window, **PaneledWall** has 7 properties:
 
 1. **Panel X Axis** is the total number of panels along the X axis
@@ -31,8 +31,8 @@ As you can see from the settings window, **PaneledWall** has 7 properties:
 7. **Height** controls the height of a panel element
 
 ### Now, PaneledBlock
-**PaneledBlock** is a combination of **PannelledWall** objects and it also automatically adjusts to the user's input and retains its consistensy no matter the value given.
-![Paneled block](https://github.com/escape13/PanelBuilder/blob/master/images/PaneledBlock.png?raw=true)
+**PaneledBlock** is a combination of **PanelledWall** objects and it also automatically adjusts to the user's input and retains its consistensy no matter the value given.
+![Paneled block](https://github.com/escape13/PanelBuilder/blob/master/images/paneledBlock.png?raw=true)
 
 **PaneledBlock** has 8 properties:
 
