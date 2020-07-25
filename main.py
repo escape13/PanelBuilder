@@ -24,9 +24,13 @@ class MENU_MT_MyCustom(bpy.types.Menu):
 def MyCustomMenuAdd(self, context):
     self.layout.menu(MENU_MT_MyCustom.bl_idname, icon = 'PLUGIN')
 
-#calculate rightest vertex function
+# calculate rightest vertex
 def rightVertex(n):
     return n * 13 - 5
+
+# calculate highest vertex
+def highestVertex(n):
+    return n * 49 - 39
 
 # addon class
 class AddMeshPanel(bpy.types.Operator):
@@ -35,14 +39,14 @@ class AddMeshPanel(bpy.types.Operator):
     bl_label = 'Panelled Walls'
     bl_options = {'REGISTER', 'UNDO'}
     # user-input variables
-    num_x : bpy.props.IntProperty(name="Panels X Axis", description="Number of panels over the X axis", default=4, min=1, max=300)
-    num_y : bpy.props.IntProperty(name="Panels Y Axis", description="Number of panels over the Y axis", default=3, min=1, max=300)
-    num_z : bpy.props.IntProperty(name="Panels Z Axis", description="Number of panels over the Z axis", default=3, min=1, max=300)
+    num_x : bpy.props.IntProperty(name="Panels X Axis", description="Number of panels over the X axis", default=3, min=1, max=5000)
+    num_y : bpy.props.IntProperty(name="Panels Y Axis", description="Number of panels over the Y axis", default=4, min=1, max=5000)
+    num_z : bpy.props.IntProperty(name="Panels Z Axis", description="Number of panels over the Z axis", default=3, min=1, max=5000)
     padding_hor : bpy.props.FloatProperty(name="Horizontal Padding", description="Padding between horizontal panels", default=0.05, min=0, max=1)
     padding_vert : bpy.props.FloatProperty(name="Vertical Padding", description="Padding between vertical panels", default=0.05, min=0, max=1)
-    scale_x : bpy.props.FloatProperty(name="Panel X scale", description="X scale of a panel unit", default=0.05, min=0.001, max=100)
-    scale_y : bpy.props.FloatProperty(name="Panel Y scale", description="Y scale of a panel unit", default=1, min=0.001, max=100)
-    scale_z : bpy.props.FloatProperty(name="Panel Z scale", description="Z scale of a panel unit", default=0.5, min=0.001, max=100)
+    scale_x : bpy.props.FloatProperty(name="Panel X scale", description="X scale of a panel unit", default=0.05, min=0.001, max=1000)
+    scale_y : bpy.props.FloatProperty(name="Panel Y scale", description="Y scale of a panel unit", default=1, min=0.001, max=1000)
+    scale_z : bpy.props.FloatProperty(name="Panel Z scale", description="Z scale of a panel unit", default=0.5, min=0.001, max=1000)
 
     def execute(self, context):
         scene = context.scene
@@ -117,7 +121,6 @@ class AddMeshPanel(bpy.types.Operator):
             bpy.ops.object.editmode_toggle()
             bpy.ops.object.origin_set(type='ORIGIN_CURSOR', center='MEDIAN')
             bpy.ops.view3d.snap_cursor_to_center()
-            move_x = -(self.num_y * 2 * self.scale_y + (self.num_y - 1) * 2 * self.scale_y * self.padding_hor)
             # applying horizontal array modifier
             bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Array")
 
@@ -144,12 +147,62 @@ class AddMeshPanel(bpy.types.Operator):
                 vert.select = False
 
             bpy.ops.mesh.delete(type='VERT')
-            
             # go to object mode
             bpy.ops.object.editmode_toggle()
 
+            if (i == 1):
+                bpy.ops.transform.rotate(value=-1.5708, orient_axis='Z', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+                move_x = -(self.num_x * 2 * self.scale_y + (self.num_x - 1) * 2 * self.scale_y * self.padding_hor)
+                bpy.ops.transform.translate(value=(move_x, -0, -0), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(True, False, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 
+            if (i == 2):
+                bpy.ops.transform.rotate(value=3.14159, orient_axis='Z', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+                move_y = self.num_y * 2 * self.scale_y + (self.num_y - 1) * 2 * self.scale_y * self.padding_hor
+                bpy.ops.transform.translate(value=(0, move_y, 0), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+                move_x = -(self.num_x * 2 * self.scale_y + (self.num_x - 1) * 2 * self.scale_y * self.padding_hor)
+                bpy.ops.transform.translate(value=(move_x, 0, 0), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 
+            if (i == 3):
+                bpy.ops.transform.rotate(value=1.5708, orient_axis='Z', orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+                move_y = self.num_y * 2 * self.scale_y + (self.num_y - 1) * 2 * self.scale_y * self.padding_hor
+                bpy.ops.transform.translate(value=(0, move_y, 0), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, True, False), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+
+            bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Array.001")
+
+            # parsing ubdated object data to obj and bm
+            bpy.ops.object.mode_set(mode='EDIT')
+            bpy.ops.mesh.select_all(action = 'DESELECT')
+            bpy.context.tool_settings.mesh_select_mode = (True, False, False)
+            obj = bpy.context.active_object
+            bm = bmesh.from_edit_mesh(obj.data)
+
+            vertex1 = highestVertex(self.num_z)
+
+            highestVerts = []
+            highestVerts.append(vertex1)
+
+            if (i == 0 or i == 2):
+                toggle = self.num_y
+            if (i == 1 or i == 3):
+                toggle = self.num_x
+
+            for j in range(2 * toggle - 1):
+                if (j % 2 == 0):
+                    vertex1 += 1
+                    highestVerts.append(vertex1)
+                else:
+                    vertex1 += 12
+                    highestVerts.append(vertex1)
+            # deleting highest vertices
+            for vert in bm.verts:
+                if (vert in highestVerts):
+                    vert.select = True
+                    continue
+                vert.select = False
+
+            bpy.ops.mesh.delete(type='VERT')
+            # go to object mode
+            bpy.ops.object.editmode_toggle()
 
         return {'FINISHED'}
 
