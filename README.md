@@ -13,7 +13,7 @@ This add-on allows you to make Paneled surfaces in one click! Instead of applyin
 
 ## Functionality 
 
-A new type of mesh will appear when you'll try to create a mesh (Shift + A): **Panels**
+A new type of mesh will appear in the menu when you'll try to create a mesh (Shift + A): **Panels**
 
 ![new mesh type](https://github.com/escape13/PanelBuilder/blob/master/images/addMesh.png?raw=true)
 
