@@ -50,9 +50,9 @@ class AddPanelledWall(bpy.types.Operator):
     num_z_n : bpy.props.IntProperty(name="Panels Z Axis", description="Number of panels over the Z axis", default=3, min=1, max=5000)
     padding_hor_n : bpy.props.FloatProperty(name="Horizontal Padding", description="Padding between horizontal panels", default=0.01, min=0, max=1)
     padding_vert_n : bpy.props.FloatProperty(name="Vertical Padding", description="Padding between vertical panels", default=0.02, min=0, max=1)
-    scale_x_n: bpy.props.FloatProperty(name="Panel X scale", description="X scale of a panel unit", default=0.02, min=0.001, max=1000)
-    scale_y_n : bpy.props.FloatProperty(name="Panel Y scale", description="Y scale of a panel unit", default=1, min=0.001, max=1000)
-    scale_z_n : bpy.props.FloatProperty(name="Panel Z scale", description="Z scale of a panel unit", default=0.5, min=0.001, max=1000)
+    scale_x_n: bpy.props.FloatProperty(name="Width", description="X scale of a panel unit", default=0.02, min=0.001, max=1000)
+    scale_y_n : bpy.props.FloatProperty(name="Thickness", description="Y scale of a panel unit", default=1, min=0.001, max=1000)
+    scale_z_n : bpy.props.FloatProperty(name="Height", description="Z scale of a panel unit", default=0.5, min=0.001, max=1000)
 
     def execute(self, context):
         scene = context.scene
@@ -193,9 +193,9 @@ class AddPanelledBlock(bpy.types.Operator):
     num_z : bpy.props.IntProperty(name="Panels Z Axis", description="Number of panels over the Z axis", default=3, min=1, max=5000)
     padding_hor : bpy.props.FloatProperty(name="Horizontal Padding", description="Padding between horizontal panels", default=0.01, min=0, max=1)
     padding_vert : bpy.props.FloatProperty(name="Vertical Padding", description="Padding between vertical panels", default=0.02, min=0, max=1)
-    scale_x : bpy.props.FloatProperty(name="Panel X scale", description="X scale of a panel unit", default=0.02, min=0.001, max=1000)
-    scale_y : bpy.props.FloatProperty(name="Panel Y scale", description="Y scale of a panel unit", default=1, min=0.001, max=1000)
-    scale_z : bpy.props.FloatProperty(name="Panel Z scale", description="Z scale of a panel unit", default=0.5, min=0.001, max=1000)
+    scale_x : bpy.props.FloatProperty(name="Width", description="X scale of a panel unit", default=0.02, min=0.001, max=1000)
+    scale_y : bpy.props.FloatProperty(name="Thickness", description="Y scale of a panel unit", default=1, min=0.001, max=1000)
+    scale_z : bpy.props.FloatProperty(name="Height", description="Z scale of a panel unit", default=0.5, min=0.001, max=1000)
 
     def execute(self, context):
         scene = context.scene
