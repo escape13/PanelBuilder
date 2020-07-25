@@ -4,12 +4,12 @@ This add-on allows you to make paneled surfaces in no time! Instead of applying 
 
 ## Installation
 
-1. Clone panelbuilder.py to your computer.
-2. Open Blender.
+1. Clone **panelbuilder.py** to your computer.
+2. Open Blender
 3. Go to Edit -> Preferences -> Add-ons.
-4. Click 'Install' and navigate to the directory where you have saved panelbuilder.py.
-5. Click 'Install add-on'.
-6. Check the box 'Add Mesh: PanelBuilder'.
+4. Click 'Install' and navigate to the directory where you have saved **panelbuilder.py**
+5. Choose **panelbuilder.py** and click 'Install add-on'
+6. Check the box 'Add Mesh: PanelBuilder'
 
 ## Functionality 
 
