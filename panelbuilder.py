@@ -1,7 +1,7 @@
 # addon info
 bl_info = {
     "name": "PanelBuilder",
-    "description": "Building panelled boxes and walls.",
+    "description": "Building paneled boxes and walls.",
     "author": "Timur Valeev",
     "version": (1, 0),
     "blender": (2, 82, 0),
@@ -41,8 +41,8 @@ def highestVertex(n):
 class AddPanelledWall(bpy.types.Operator):
 
     # class initialization
-    bl_idname = 'mesh.add_panelledwall'
-    bl_label = 'PanelledWall'
+    bl_idname = 'mesh.add_paneledwall'
+    bl_label = 'PaneledWall'
     bl_options = {'REGISTER', 'UNDO'}
 
     # user-input variables initialization
@@ -61,7 +61,7 @@ class AddPanelledWall(bpy.types.Operator):
         obj = bpy.context.active_object
 
         # resizing the cube
-        obj.name = "PanelledWall"
+        obj.name = "PaneledWall"
         bpy.ops.transform.resize(value=(self.scale_x_n, self.scale_y_n, self.scale_z_n))
 
         # enter edit mode
@@ -172,7 +172,7 @@ class AddPanelledWall(bpy.types.Operator):
 
         # changing the name of an object
         obj = bpy.context.active_object
-        obj.name = "PanelledWall"
+        obj.name = "PaneledWall"
 
 
         return {'FINISHED'}
@@ -183,8 +183,8 @@ class AddPanelledWall(bpy.types.Operator):
 class AddPanelledBlock(bpy.types.Operator):
 
     # addon initialize
-    bl_idname = 'mesh.add_panelledblock'
-    bl_label = 'PanelledBlock'
+    bl_idname = 'mesh.add_paneledblock'
+    bl_label = 'PaneledBlock'
     bl_options = {'REGISTER', 'UNDO'}
 
     # user-input variables
@@ -209,7 +209,7 @@ class AddPanelledBlock(bpy.types.Operator):
             obj = bpy.context.active_object
 
             # resizing the cube
-            obj.name = "PanelledWallElem"
+            obj.name = "PaneledWallElem"
             bpy.ops.transform.resize(value=(self.scale_x, self.scale_y, self.scale_z))
 
             # enter edit mode
@@ -341,14 +341,14 @@ class AddPanelledBlock(bpy.types.Operator):
         bpy.ops.object.select_all(action='DESELECT')
 
         for o in bpy.data.objects:
-            if o.name in ("PanelledWallElem", "PanelledWallElem.001", "PanelledWallElem.002", "PanelledWallElem.003"):
+            if o.name in ("PaneledWallElem", "PaneledWallElem.001", "PaneledWallElem.002", "PaneledWallElem.003"):
                 o.select_set(True)
 
         bpy.ops.object.join()
 
         # renaming the elements
         obj = bpy.context.active_object
-        obj.name = "PanelledBlock"
+        obj.name = "PaneledBlock"
 
         # positioning the object
         bpy.ops.object.origin_set(type='ORIGIN_CENTER_OF_MASS', center='MEDIAN')
