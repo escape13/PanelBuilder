@@ -1,6 +1,6 @@
 # PanelBuilder Blender add-on
 
-This add-on allows you to make panelled surfaces in one click! Instead of applying array modificators, putting up the walls and guessing to make the padding right you can just type in all desired modifications when creating one of this add-on's two meshes.
+This add-on allows you to make Paneled surfaces in one click! Instead of applying array modificators, putting up the walls and guessing to make the padding right you can just type in all desired modifications when creating one of this add-on's two meshes.
 
 ## Installation
 
@@ -17,10 +17,10 @@ A new type of mesh will appear when you'll try to create a mesh (Shift + A): **P
 
 ![new mesh type](https://github.com/escape13/PanelBuilder/blob/master/images/addMesh.png?raw=true)
 
-### Let's start with **PanelledWall**
-**PanelledWall** automatically adjusts to the user's input and retains its consistensy no matter the value given.
-![panelled wall](https://github.com/escape13/PanelBuilder/blob/master/images/panelledWall.png?raw=true)
-As you can see from the settings window, **PanelledWall** has 7 properties:
+### Let's start with **PaneledWall**
+**PaneledWall** automatically adjusts to the user's input and retains its consistensy no matter the value given.
+![Paneled wall](https://github.com/escape13/PanelBuilder/blob/master/images/PaneledWall.png?raw=true)
+As you can see from the settings window, **PaneledWall** has 7 properties:
 
 1. **Panel X Axis** is the total number of panels along the X axis
 2. **Panel Z Axis** is the total number of panels along the Z axis
@@ -30,11 +30,11 @@ As you can see from the settings window, **PanelledWall** has 7 properties:
 6. **Thickness** controls the thickness of a panel element
 7. **Height** controls the height of a panel element
 
-### Now, PanelledBlock
-**PanelledBlock** is a combination of **PannelledWall** objects and it also automatically adjusts to the user's input and retains its consistensy no matter the value given.
-![panelled block](https://github.com/escape13/PanelBuilder/blob/master/images/panelledBlock.png?raw=true)
+### Now, PaneledBlock
+**PaneledBlock** is a combination of **PannelledWall** objects and it also automatically adjusts to the user's input and retains its consistensy no matter the value given.
+![Paneled block](https://github.com/escape13/PanelBuilder/blob/master/images/PaneledBlock.png?raw=true)
 
-**PanelledBlock** has 8 properties:
+**PaneledBlock** has 8 properties:
 
 1. **Panel X Axis** is the total number of panels along the X axis
 2. **Panel Y Axis** is the total number of panels along the Y axis
