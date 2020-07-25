@@ -1,6 +1,6 @@
 # PanelBuilder Blender add-on
 
-This add-on allows you to make Paneled surfaces in one click! Instead of applying array modificators, putting up the walls and guessing to make the padding right you can just type in all desired modifications when creating one of this add-on's two meshes.
+This add-on allows you to make paneled surfaces in no time! Instead of applying array modificators, putting up the walls and guessing to make the padding right you can just type in all desired modifications when creating one of this add-on's two meshes.
 
 ## Installation
 
