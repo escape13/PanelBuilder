@@ -24,6 +24,10 @@ class MENU_MT_MyCustom(bpy.types.Menu):
 def MyCustomMenuAdd(self, context):
     self.layout.menu(MENU_MT_MyCustom.bl_idname, icon = 'PLUGIN')
 
+#calculate rightest vertex function
+def rightVertex(n):
+    return n * 13 - 5
+
 # addon class
 class AddMeshPanel(bpy.types.Operator):
     # addon initialize
@@ -84,9 +88,9 @@ class AddMeshPanel(bpy.types.Operator):
             bpy.context.object.modifiers["Array"].relative_offset_displace[1] = 1
             bpy.context.object.modifiers["Array"].relative_offset_displace[2] = 0
             if (i == 0 or i == 2):
-                bpy.context.object.modifiers["Array"].count = self.num_x
-            elif (i == 1 or i == 3):
                 bpy.context.object.modifiers["Array"].count = self.num_y
+            elif (i == 1 or i == 3):
+                bpy.context.object.modifiers["Array"].count = self.num_x
 
             #adding vertical array according to amount specified in user-input
             bpy.ops.object.modifier_add(type='ARRAY')
@@ -116,6 +120,16 @@ class AddMeshPanel(bpy.types.Operator):
             move_x = -(self.num_y * 2 * self.scale_y + (self.num_y - 1) * 2 * self.scale_y * self.padding_hor)
             # applying horizontal array modifier
             bpy.ops.object.modifier_apply(apply_as='DATA', modifier="Array")
+
+            if (i == 0 or i == 2):
+                vertex1 = rightVertex(self.num_y)
+                vertex2 = vertex1 + 1
+                vertex3 = vertex2 + 3
+            elif (i == 1 or i == 3):
+                vertex1 = rightVertex(self.num_x)
+                vertex2 = vertex1 + 1
+                vertex3 = vertex2 + 3
+
             # parsing ubdated object data to obj and bm
             bpy.ops.object.mode_set(mode='EDIT')
             bpy.ops.mesh.select_all(action = 'DESELECT')
@@ -123,22 +137,17 @@ class AddMeshPanel(bpy.types.Operator):
             obj = bpy.context.active_object
             bm = bmesh.from_edit_mesh(obj.data)
             # deleting right vertices
-            """if (i == 0 or i == 2):
-                for vert in bm.verts:
-                    if (vert.index == 47 or vert.index == 48 or vert.index == 51):
-                        vert.select = True
-                        continue
-                    vert.select = False
-            elif (i == 1 or i == 3):
-                for vert in bm.verts:
-                    if (vert.index == 34 or vert.index == 35 or vert.index == 38):
-                        vert.select = True
-                        continue
-                    vert.select = False
+            for vert in bm.verts:
+                if (vert.index == vertex1 or vert.index == vertex2 or vert.index == vertex3):
+                    vert.select = True
+                    continue
+                vert.select = False
+
             bpy.ops.mesh.delete(type='VERT')
+            
             # go to object mode
             bpy.ops.object.editmode_toggle()
-            """
+
 
 
 
