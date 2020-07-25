@@ -19,7 +19,9 @@ A new type of mesh will appear in the menu when you'll try to create a mesh (Shi
 
 ### Let's start with **PaneledWall**
 **PaneledWall** automatically adjusts to the user's input and retains its consistensy no matter the value given.
+
 ![Paneled wall](https://github.com/escape13/PanelBuilder/blob/master/images/paneledWall.png?raw=true)
+
 As you can see from the settings window, **PaneledWall** has 7 properties:
 
 1. **Panel X Axis** is the total number of panels along the X axis
@@ -32,6 +34,7 @@ As you can see from the settings window, **PaneledWall** has 7 properties:
 
 ### Now, PaneledBlock
 **PaneledBlock** is a combination of **PanelledWall** objects and it also automatically adjusts to the user's input and retains its consistensy no matter the value given.
+
 ![Paneled block](https://github.com/escape13/PanelBuilder/blob/master/images/paneledBlock.png?raw=true)
 
 **PaneledBlock** has 8 properties:
