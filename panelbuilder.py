@@ -6,7 +6,6 @@ bl_info = {
     "version": (1, 0),
     "blender": (2, 82, 0),
     "location": "View3D > Add > Mesh",
-    "warning": "", # used for warning icon and text in addons panel
     "wiki_url": "https://github.com/escape13/blender-add-on/blob/master/README.md",
     "tracker_url": "https://github.com/escape13/blender-add-on",
     "support": "COMMUNITY",
